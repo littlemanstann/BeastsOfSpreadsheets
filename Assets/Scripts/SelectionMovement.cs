@@ -48,7 +48,6 @@ public class SelectionMovement : MonoBehaviour
 
 
         if (Input.GetKeyDown(KeyCode.Delete)) ClearCell();
-
     }
 
     void Move(int dr, int dc)

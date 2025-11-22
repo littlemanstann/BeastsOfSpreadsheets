@@ -38,7 +38,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1, y: 1}
+  m_SizeDelta: {x: 0.65, y: 0.17}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &7517907108304155391
 SpriteRenderer:
@@ -148,7 +148,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f05744df0c82b5c4c87b801b4ef702ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CellData
-  contents: ---
   cell_transform: {fileID: 0}
   text_plane: {fileID: 4466442543966803847}
 --- !u!1 &8143196292892725022

@@ -7,7 +7,6 @@ public class GridBuilder : MonoBehaviour
     public RectTransform gridParent;
     public GameObject cellPrefab;
     
-
     public int rows = 2;
     public int cols = 1;
     public float cellWidth = 100f;
@@ -19,7 +18,7 @@ public class GridBuilder : MonoBehaviour
 
     void Start()
     {
-        if (gridParent.childCount == 0)
+        if (gridParent.childCount <= 0)
             GenerateGrid();
         else
             InitializeCellData();
@@ -51,7 +50,6 @@ public class GridBuilder : MonoBehaviour
                 //set the transformations
                 var cell_transform = new_cell.GetComponent<RectTransform>();
                 cell_transform.anchoredPosition = new Vector2(r * cellWidth, -c * cellHeight);
-                cell_transform.sizeDelta = new Vector2(cellWidth, cellHeight);
                 new_cell_data.cell_transform = cell_transform;
 
                 //push it to da array
@@ -62,14 +60,16 @@ public class GridBuilder : MonoBehaviour
 
     private  void InitializeCellData()
     {
-        //load existing cells into the array
+        // Load existing cells into the array
         cell_datas = new CellData[cols, rows];
+
         for (int r = 0; r < rows; r++)
         {
             for (int c = 0; c < cols; c++)
             {
-                var cell_data = gridParent.GetChild(r * cols + c).GetComponent<CellData>();
-                cell_datas[c, r] = cell_data;
+                var cellTransform = gridParent.GetChild(r * cols + c);
+                var cellData = cellTransform.GetComponent<CellData>();
+                cell_datas[c, r] = cellData;
             }
         }
     }
