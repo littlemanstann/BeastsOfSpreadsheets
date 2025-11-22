@@ -27,19 +27,27 @@ public class SelectionMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftArrow))  Move(0, -1);
         if (Input.GetKeyDown(KeyCode.RightArrow)) Move(0, 1);
 
+
         // Smoothly interpolate the selection box position
 
-        if (inputBuffer.Count > 0)
+        //store a list of all the places the box should be and move the box through the list until its empty
+
+        if (inputBuffer.Count > 0)//if there's still a destination
         {
             currentPosition = Vector3.Lerp(currentPosition, inputBuffer[0], 100f * Time.deltaTime);
             selectionBox.position = currentPosition;
 
+            //if its close to the location
             if (Vector3.Distance(currentPosition, inputBuffer[0]) < 0.3f && inputBuffer.Count > 1)
-            {
+            {   
+                //remove that point
                 inputBuffer.RemoveAt(0);
             }
 
         }
+
+
+        if (Input.GetKeyDown(KeyCode.Delete)) ClearCell();
 
     }
 
@@ -57,5 +65,11 @@ public class SelectionMovement : MonoBehaviour
         var cell = grid.cell_datas[col, row];
         if (inputBuffer.Count < 6)
             inputBuffer.Add(new Vector3(cell.cell_transform.position.x, cell.cell_transform.position.y, selectionBox.position.z));
+    }
+
+    void ClearCell()
+    {
+        var cell = grid.cell_datas[col, row];
+        cell.update_text("");
     }
 }
