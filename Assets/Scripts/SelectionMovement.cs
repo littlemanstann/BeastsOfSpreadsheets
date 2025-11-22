@@ -1,11 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 using Vector3 = UnityEngine.Vector3;
 
 public class SelectionMovement : MonoBehaviour
 {
-    public GridBuilder grid;
+    private GridBuilder grid;
     private RectTransform selectionBox;
 
     private List<Vector3> inputBuffer = new List<Vector3>();
@@ -17,6 +18,7 @@ public class SelectionMovement : MonoBehaviour
     void Start()
     {
         selectionBox = this.GetComponent<RectTransform>();
+        grid = FindAnyObjectByType<GridBuilder>();
         UpdateSelectionBoxPosition();
     }
 
@@ -43,7 +45,6 @@ public class SelectionMovement : MonoBehaviour
                 //remove that point
                 inputBuffer.RemoveAt(0);
             }
-
         }
 
 

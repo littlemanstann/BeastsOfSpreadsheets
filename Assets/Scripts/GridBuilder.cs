@@ -16,17 +16,18 @@ public class GridBuilder : MonoBehaviour
 
     public CellData[,] cell_datas;
 
-    void Start()
+    void Awake()
     {
-        if (gridParent.childCount <= 0)
+        if (gridParent.childCount == 0)
             GenerateGrid();
-        else
+        else {
+            Debug.Log("Initializing existing grid cells.");
             InitializeCellData();
+        }
     }
 
     public void GenerateGrid()
     {
-        //cellRects = new RectTransform[cols, rows];
         cell_datas = new CellData[cols, rows];
 
         for (int r = 0; r < rows; r++)
@@ -58,7 +59,7 @@ public class GridBuilder : MonoBehaviour
         }
     }
 
-    private  void InitializeCellData()
+    private void InitializeCellData()
     {
         // Load existing cells into the array
         cell_datas = new CellData[cols, rows];
@@ -67,9 +68,9 @@ public class GridBuilder : MonoBehaviour
         {
             for (int c = 0; c < cols; c++)
             {
-                var cellTransform = gridParent.GetChild(r * cols + c);
-                var cellData = cellTransform.GetComponent<CellData>();
-                cell_datas[c, r] = cellData;
+                // Assign the cell data using the already generated grid by name
+                Debug.Log($"Assigned cell at position {r},{c} to cell_datas array.");
+                cell_datas[c, r] = transform.Find($"Cell_{r}_{c}").GetComponent<CellData>();
             }
         }
     }

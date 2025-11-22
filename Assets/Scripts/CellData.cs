@@ -11,7 +11,7 @@ public class CellData : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        update_text(contents);
+        //update_text(contents);
     }
 
     // Update is called once per frame
