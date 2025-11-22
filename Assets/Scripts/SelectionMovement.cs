@@ -48,7 +48,7 @@ public class SelectionMovement : MonoBehaviour
         col = Mathf.Clamp(col + dr, 0, grid.cols - 1);
         row = Mathf.Clamp(row + dc, 0, grid.rows - 1);
         var dest = grid.cell_datas[col, row];
-        Debug.Log("moved to cell with contents " + dest.contents);
+        Debug.Log("moved to cell with contents " + dest.get_text());
         UpdateSelectionBoxPosition();
     }
 
