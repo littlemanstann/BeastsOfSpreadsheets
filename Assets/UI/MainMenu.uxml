@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/main-menu.uss?fileID=7433441132597879392&amp;guid=1cf08fdde59c9b54ca73d4e246f08e5f&amp;type=3#main-menu" />
+    <ui:VisualElement name="Panel" class="panel" style="flex-grow: 1;">
+        <ui:VisualElement name="Logo" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/UI/Logo.png?fileID=2800000&amp;guid=bb6df0659f2a25a4584bb1d626ddbdba&amp;type=3#Logo&quot;); min-width: auto; min-height: auto; width: 67%; height: 38%; align-items: auto; justify-content: flex-start; align-self: auto; left: 34px;" />
+        <ui:VisualElement name="Container" class="menu" style="flex-grow: 1; align-items: flex-end;">
+            <ui:Button text="Play" name="PlayButton" style="bottom: 60px;" />
+            <ui:Button text="OptIons" name="OptionsButton" style="bottom: 30px;" />
+            <ui:Button text="QuIt" name="QuitButton" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
