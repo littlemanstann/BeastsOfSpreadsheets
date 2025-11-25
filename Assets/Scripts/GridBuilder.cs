@@ -45,8 +45,8 @@ public class GridBuilder : MonoBehaviour
                 new_cell.name = $"Cell_{r}_{c}";
 
                 //set the text content
-                string[] test = { "goon", "test", "p" }; //testing junk
-                new_cell_data.update_text("");
+                string[] test = { "gonner eli", "test", "junk" }; //testing junk
+                new_cell_data.update_text(test[Random.Range(0, test.Length)]);
 
                 // set the coordinates
                 new_cell_data.SetCoordinates(r, c);

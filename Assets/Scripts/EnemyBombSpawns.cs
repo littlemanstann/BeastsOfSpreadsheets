@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class EnemyBombSpawns : MonoBehaviour
@@ -7,12 +8,14 @@ public class EnemyBombSpawns : MonoBehaviour
     private List<CellData> bombCells = new List<CellData>();
     private List<CellData> enemyCells = new List<CellData>();
 
+    public GameObject loseScreenUI;
+    public TextMeshProUGUI scoreText;
     public float bombChance = 0.2f;
-    public float enemyChance = 0.8f;
-    public float multiSpawnChance = 0.4f;
-    public float difficultyScaling = 0.01f;
+    public float enemyChance = 0.7f;
+    public float multiSpawnChance = 0.2f;
+    public float difficultyScaling = 0.001f;
     private int spawnAmount = 1;
-    public float spawnInterval = 1f;
+    public float spawnInterval = 1.7f;
 
     private float scoreTimer = 0f;
     private float spawnTimer = 0f;
@@ -26,7 +29,9 @@ public class EnemyBombSpawns : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Add to timer
+        // Add to timers
+        scoreTimer += Time.deltaTime;
+        scoreText.text = "Timer: " + scoreTimer.ToString("F2");
         spawnTimer += Time.deltaTime;
         spawnAmount = 1;
 
@@ -67,7 +72,7 @@ public class EnemyBombSpawns : MonoBehaviour
             
             spawnTimer = 0f;
             // Make spawn interval shorter over time to increase difficulty
-            spawnInterval = Mathf.Max(0.2f, spawnInterval - difficultyScaling);
+            spawnInterval = Mathf.Max(0.2f, spawnInterval - difficultyScaling / 1f);
             bombChance = Mathf.Min(0.4f, bombChance + difficultyScaling / 2f);
             enemyChance = Mathf.Min(1.0f, enemyChance + difficultyScaling / 2f);
             multiSpawnChance = Mathf.Min(0.7f, multiSpawnChance + difficultyScaling / 4f);
@@ -85,9 +90,12 @@ public class EnemyBombSpawns : MonoBehaviour
             int r = cell.Row();
             int c = cell.Col();
 
-            // If there's no bomb in this cell (bomb deleted), skip
+            // If there's no bomb in this cell (bomb deleted), lose the game
             if (!cell.IsBombEnabled())
+            {
+                LoseGame();
                 continue;
+            }
             
             cell.SetBomb(false); // always disable current cell
 
@@ -114,11 +122,23 @@ public class EnemyBombSpawns : MonoBehaviour
                 CellData next = grid.cell_datas[c + 1, r];
                 next.SetEnemy(true);
                 newEnemyList.Add(next);
+            } 
+            else
+            {
+                // Enemy reached the end - lose the game
+                LoseGame();
             }
         }
 
         bombCells = newBombList;
         enemyCells = newEnemyList;
+    }
+
+    void LoseGame()
+    {
+        Debug.Log("Game Over!");
+        Time.timeScale = 0f; // Pause game time
+        loseScreenUI.SetActive(true);
     }
 
     void SpawnBombAt(int row, int col)
