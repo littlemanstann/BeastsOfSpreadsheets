@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -59,6 +60,19 @@ public class SelectionMovement : MonoBehaviour
         // Handle cell clearing
         if (Input.GetKeyDown(KeyCode.Delete)) ClearCells();
         if (Input.GetKeyDown(KeyCode.Backspace)) ClearCells();
+
+        // Add timestamp to cell 
+        if(Input.GetKey(KeyCode.LeftControl) && Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Semicolon)){
+            AddTimeStampToSelectedCells();
+        }
+    }
+    void AddTimeStampToSelectedCells()
+    {
+        foreach (var item in selectedCells)
+        {
+            string timestamp = System.DateTime.Now.ToString("h:mm:ss tt");
+            item.update_text(timestamp);
+        }
     }
 
     void Move(int dr, int dc)
