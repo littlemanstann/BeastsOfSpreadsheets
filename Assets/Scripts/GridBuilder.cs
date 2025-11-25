@@ -46,7 +46,10 @@ public class GridBuilder : MonoBehaviour
 
                 //set the text content
                 string[] test = { "goon", "test", "p" }; //testing junk
-                new_cell_data.update_text(test[c % 3]);
+                new_cell_data.update_text("");
+
+                // set the coordinates
+                new_cell_data.SetCoordinates(r, c);
 
                 //set the transformations
                 var cell_transform = new_cell.GetComponent<RectTransform>();
