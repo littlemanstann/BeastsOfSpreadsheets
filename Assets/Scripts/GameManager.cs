@@ -19,7 +19,6 @@ public class GameManager : MonoBehaviour
     public float safetyThreshold = 7.5f;
 
     public GridBuilder grid;
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -39,7 +38,7 @@ public class GameManager : MonoBehaviour
             StartSequence();
             started = true;
             timer = 0f;
-            ShowNextAnimal();  // Show first image immediately after delay
+            ShowNextAnimal();
         }
         else if (started && !finished && timer >= cycleTime)
         {
@@ -80,7 +79,6 @@ public class GameManager : MonoBehaviour
 
     void ClearImage()
     {
-        //spriteRenderer.sprite = null;
         if (DidPlayerWin())
         {
             Sprite loaded = Resources.Load<Sprite>("checkmark");
