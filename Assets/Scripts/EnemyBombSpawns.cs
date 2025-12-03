@@ -9,6 +9,7 @@ public class EnemyBombSpawns : MonoBehaviour
     private List<CellData> enemyCells = new List<CellData>();
 
     public GameObject loseScreenUI;
+    public TextMeshProUGUI timerText;
     public TextMeshProUGUI scoreText;
     public float bombChance = 0.2f;
     public float enemyChance = 0.7f;
@@ -20,6 +21,7 @@ public class EnemyBombSpawns : MonoBehaviour
     private float scoreTimer = 0f;
     private float spawnTimer = 0f;
     private int score = 0;
+    private bool gameOver = false;
 
     void Awake()
     {
@@ -29,9 +31,11 @@ public class EnemyBombSpawns : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (gameOver) return;
+
         // Add to timers
         scoreTimer += Time.deltaTime;
-        scoreText.text = "Timer: " + scoreTimer.ToString("F2");
+        timerText.text = "Timer: " + scoreTimer.ToString("F2");
         spawnTimer += Time.deltaTime;
         spawnAmount = 1;
 
@@ -77,12 +81,16 @@ public class EnemyBombSpawns : MonoBehaviour
             enemyChance = Mathf.Min(1.0f, enemyChance + difficultyScaling / 2f);
             multiSpawnChance = Mathf.Min(0.7f, multiSpawnChance + difficultyScaling / 4f);
         }
+
+        // Update score display
+        scoreText.text = "SCORE: " + score.ToString();
     }
 
     void MoveElementsDown()
     {
         List<CellData> newBombList = new List<CellData>();
         List<CellData> newEnemyList = new List<CellData>();
+        int scoreMultiplier = 1;
 
         // Move bombs and enemies down one row
         foreach (var cell in bombCells)
@@ -111,9 +119,12 @@ public class EnemyBombSpawns : MonoBehaviour
             int r = cell.Row();
             int c = cell.Col();
 
-            // If there's no enemy in this cell (enemy deleted), skip
-            if (!cell.IsEnemyEnabled())
+            // If there's no enemy in this cell (enemy deleted), add to score and skip
+            if (!cell.IsEnemyEnabled()) {
+                score += 1 * scoreMultiplier;
+                scoreMultiplier *= 2;
                 continue;
+            }
 
             cell.SetEnemy(false); // always disable current cell
 
@@ -137,20 +148,17 @@ public class EnemyBombSpawns : MonoBehaviour
     void LoseGame()
     {   
         Debug.Log("Game Over!");
+        gameOver = true;
         Time.timeScale = 0f; // Pause game time
-
+        
         //added this just to have a temporary win condition for testing
         //-evan
         if(scoreTimer > 5)
         {
-            star.levels_completed[0] = true;
+            //star.levels_completed[0] = true;
         }
-        else
-        {
-            loseScreenUI.SetActive(true);
-        }
-            
 
+        loseScreenUI.SetActive(true);
     }
 
     void SpawnBombAt(int row, int col)
