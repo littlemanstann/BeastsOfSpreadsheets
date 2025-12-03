@@ -47,11 +47,14 @@ public class GridBuilder : MonoBehaviour
                 //set the text content
                 //string[] test = { "gonner eli", "test", "junk" }; //testing junk
                 //new_cell_data.update_text(test[Random.Range(0, test.Length)]);
+                /*
                 string[] level2 = { "Monkey", "Orangutan", "Capybara", "Elephant", "Wolf", "Goat", "Hippo", "Pig", "Pug", "Cow", "Frog", "Ant", "Human", "Sheep" }; //testing junk
                 if (r == 0)
                     new_cell_data.update_text(level2[c]);
                 else
                     new_cell_data.update_text("");
+                */
+                new_cell_data.update_text("");
 
                 // set the coordinates
                 new_cell_data.SetCoordinates(r, c);
