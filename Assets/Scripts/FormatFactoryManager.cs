@@ -141,6 +141,7 @@ public class FormatFactoryManager : MonoBehaviour
         {
             Sprite loaded = Resources.Load<Sprite>("checkmark");
             spriteRenderer.sprite = loaded;
+            star.levels_completed[4] = true;
         }
         else
         {

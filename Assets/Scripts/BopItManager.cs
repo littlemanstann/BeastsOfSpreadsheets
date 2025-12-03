@@ -118,6 +118,7 @@ public class BopItManager : MonoBehaviour
         {
             Sprite loaded = Resources.Load<Sprite>("checkmark");
             spriteRenderer.sprite = loaded;
+            star.levels_completed[3] = true;
         }
         else
         {

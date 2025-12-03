@@ -135,10 +135,22 @@ public class EnemyBombSpawns : MonoBehaviour
     }
 
     void LoseGame()
-    {
+    {   
         Debug.Log("Game Over!");
         Time.timeScale = 0f; // Pause game time
-        loseScreenUI.SetActive(true);
+
+        //added this just to have a temporary win condition for testing
+        //-evan
+        if(scoreTimer > 5)
+        {
+            star.levels_completed[0] = true;
+        }
+        else
+        {
+            loseScreenUI.SetActive(true);
+        }
+            
+
     }
 
     void SpawnBombAt(int row, int col)

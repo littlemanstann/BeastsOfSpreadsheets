@@ -83,6 +83,7 @@ public class GameManager : MonoBehaviour
         {
             Sprite loaded = Resources.Load<Sprite>("checkmark");
             spriteRenderer.sprite = loaded;
+            star.levels_completed[2] = true;
         }
         else
         {
