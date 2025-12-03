@@ -18486,7 +18486,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1280, y: 720}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -45054,6 +45054,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 495066c1d4fb4e14c82862e4384f6853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectionMovement
+  selectedCells: []
 --- !u!1 &6633910515000978672
 GameObject:
   m_ObjectHideFlags: 0
@@ -45082,7 +45083,7 @@ RectTransform:
   m_GameObject: {fileID: 6633910515000978672}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -1}
-  m_LocalScale: {x: 2.7, y: 2.7, z: 2.7}
+  m_LocalScale: {x: 3, y: 2.9999998, z: 2.9999998}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 860284090}
@@ -45090,7 +45091,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 189, y: -81}
-  m_SizeDelta: {x: 70, y: 18}
+  m_SizeDelta: {x: 63, y: 17}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9066718509720512163
 CanvasRenderer:
@@ -45120,7 +45121,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1500434286138515679, guid: f12210c6b3315444197a448940dc24e6, type: 3}
+  m_Sprite: {fileID: -8586693324203152019, guid: 279616226f2f473499948a56c5d0442f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
