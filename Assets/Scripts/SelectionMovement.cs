@@ -101,7 +101,7 @@ public class SelectionMovement : MonoBehaviour
          if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Space))
             SelectWholeCol();
 
-        if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.Space))
+        if ((Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.Space)) || (Input.GetKey(KeyCode.Z) && Input.GetKeyDown(KeyCode.Space)))
             SelectWholeRow();
 
         if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.A))
@@ -113,14 +113,14 @@ public class SelectionMovement : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Alpha2)) FormatAsTime();
             if (Input.GetKeyDown(KeyCode.Alpha3)) FormatAsDate();
             if (Input.GetKeyDown(KeyCode.Alpha4)) FormatAsCurrency();
-            if (Input.GetKeyDown(KeyCode.Alpha5)) FormatAsPercentage();
+            if (Input.GetKeyDown(KeyCode.Alpha5) || Input.GetKeyDown(KeyCode.Alpha6)) FormatAsPercentage();
         }
         // Fill Shortcuts
-        if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.D))
+        if ((Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.D)) || (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.D)))
         {
             FillDown();
         }
-        if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.R))
+        if ((Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.R)) || (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.R)))
         {
             FillRight();
         }
