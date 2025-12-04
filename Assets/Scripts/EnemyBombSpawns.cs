@@ -1,14 +1,18 @@
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 
 public class EnemyBombSpawns : MonoBehaviour
 {
     private GridBuilder grid;
+    private SelectionMovement selectionMovement;
     private List<CellData> bombCells = new List<CellData>();
     private List<CellData> enemyCells = new List<CellData>();
 
-    public GameObject loseScreenUI;
+    public GameObject endScreenUI;
+    public GameObject endScreenTitle;
+    public GameObject endScreenBody;
     public TextMeshProUGUI timerText;
     public TextMeshProUGUI scoreText;
     public float bombChance = 0.2f;
@@ -26,6 +30,7 @@ public class EnemyBombSpawns : MonoBehaviour
     void Awake()
     {
         grid = FindAnyObjectByType<GridBuilder>();
+        selectionMovement = FindAnyObjectByType<SelectionMovement>();
     }
 
     // Update is called once per frame
@@ -38,6 +43,18 @@ public class EnemyBombSpawns : MonoBehaviour
         timerText.text = "Timer: " + scoreTimer.ToString("F2");
         spawnTimer += Time.deltaTime;
         spawnAmount = 1;
+
+        // Check for game over from selection movement
+        if (selectionMovement.Mistake[0])
+        {
+            LoseGame(0);
+            return;
+        }
+        else if (selectionMovement.Mistake[1])
+        {
+            LoseGame(1);
+            return;
+        }
 
         // Decide to spawn multiple guys or not
         while (Random.Range(0f, 1f) < multiSpawnChance)
@@ -101,7 +118,7 @@ public class EnemyBombSpawns : MonoBehaviour
             // If there's no bomb in this cell (bomb deleted), lose the game
             if (!cell.IsBombEnabled())
             {
-                LoseGame();
+                LoseGame(1);
                 continue;
             }
             
@@ -137,7 +154,7 @@ public class EnemyBombSpawns : MonoBehaviour
             else
             {
                 // Enemy reached the end - lose the game
-                LoseGame();
+                LoseGame(0);
             }
         }
 
@@ -145,7 +162,7 @@ public class EnemyBombSpawns : MonoBehaviour
         enemyCells = newEnemyList;
     }
 
-    void LoseGame()
+    void LoseGame(int type)
     {   
         Debug.Log("Game Over!");
         gameOver = true;
@@ -153,12 +170,19 @@ public class EnemyBombSpawns : MonoBehaviour
         
         //added this just to have a temporary win condition for testing
         //-evan
-        if(scoreTimer > 5)
-        {
-            //star.levels_completed[0] = true;
-        }
+        endScreenUI.SetActive(true);
 
-        loseScreenUI.SetActive(true);
+        // Lose game based on type
+        if (type == 0)
+        {
+            endScreenTitle.GetComponent<TextMeshProUGUI>().text = "You Lost!";
+            endScreenBody.GetComponent<TextMeshProUGUI>().text = "An enemy reached the end of the grid!\nSCORE: " + score.ToString() + " in " + scoreTimer.ToString("F2") + " seconds.";
+        }
+        else if (type == 1)
+        {
+            endScreenTitle.GetComponent<TextMeshProUGUI>().text = "You Lost!";
+            endScreenBody.GetComponent<TextMeshProUGUI>().text = "You triggered a bomb!\nSCORE: " + score.ToString() + " in " + scoreTimer.ToString("F2") + " seconds.";
+        }
     }
 
     void SpawnBombAt(int row, int col)

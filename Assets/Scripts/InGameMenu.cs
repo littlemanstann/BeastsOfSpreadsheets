@@ -1,4 +1,5 @@
 using UnityEngine;
+using IEnumerator = System.Collections.IEnumerator;
 
 public class InGameMenu : MonoBehaviour
 {
@@ -28,8 +29,14 @@ public class InGameMenu : MonoBehaviour
 
     public void RestartLevel()
     {
-        Time.timeScale = 1f; // Resume game time
-        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+        StartCoroutine(RestartRoutine());
+    }
+
+    private IEnumerator RestartRoutine()
+    {
+        Time.timeScale = 1f;
+        var scene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+        yield return UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(scene);
     }
 
     public void ResumeGame()

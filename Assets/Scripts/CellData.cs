@@ -11,10 +11,13 @@ public class CellData : MonoBehaviour
     // References to bomb and enemy GameObjects
     public GameObject bomb;
     public GameObject enemy;
+    public GameObject beenToIndicator;
     private bool bombEnabled = false;
     private bool enemyEnabled = false;
+    private bool beenToEnabled = false;
     public bool IsBombEnabled() { return bombEnabled; }
     public bool IsEnemyEnabled() { return enemyEnabled; }
+    public bool IsBeenToEnabled() { return beenToEnabled; }
 
     // Make getters for row and col
     public int row;
@@ -62,5 +65,12 @@ public class CellData : MonoBehaviour
         enemyEnabled = enabled;
         if (enemy != null)
             enemy.SetActive(enabled);
+    }
+
+    public void SetEntered(bool entered)
+    {
+        beenToEnabled = entered;
+        if (beenToIndicator != null)
+            beenToIndicator.SetActive(entered);
     }
 }

@@ -1,5 +1,7 @@
+using TMPro;
 using Unity.Loading;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class GridBuilder : MonoBehaviour
@@ -55,6 +57,7 @@ public class GridBuilder : MonoBehaviour
                     new_cell_data.update_text("");
                 */
                 new_cell_data.update_text("");
+                new_cell.GetComponentInChildren<TextMeshPro>().color = Color.red;
 
                 // set the coordinates
                 new_cell_data.SetCoordinates(r, c);
