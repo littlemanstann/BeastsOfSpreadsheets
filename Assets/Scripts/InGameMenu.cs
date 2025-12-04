@@ -39,6 +39,12 @@ public class InGameMenu : MonoBehaviour
         yield return UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(scene);
     }
 
+    public void LevelSelect()
+    {
+        Time.timeScale = 1f; // Resume game time
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Level Select");
+    }
+
     public void ResumeGame()
     {
         Time.timeScale = 1f; // Resume game time

@@ -15835,7 +15835,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 604.61, y: -19.454956}
+  m_AnchoredPosition: {x: 604.61, y: -40}
   m_SizeDelta: {x: 284.77, y: 38.91}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &758283162
@@ -19000,7 +19000,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1280, y: 720}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -20439,6 +20439,7 @@ MonoBehaviour:
   selectedCells: []
   anchorImage: {fileID: 625375621}
   cellEnterCheck: 0
+  disableMovement: 0
   checkFilled: 0
 --- !u!114 &920263453
 MonoBehaviour:
@@ -38406,7 +38407,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -160.00006, y: 20}
+  m_AnchoredPosition: {x: -160.00006, y: 38}
   m_SizeDelta: {x: 200, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1788228632
@@ -44587,7 +44588,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 213.83997, y: -19.454956}
+  m_AnchoredPosition: {x: 213.83997, y: -40}
   m_SizeDelta: {x: 427.68, y: 38.910004}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2092782152

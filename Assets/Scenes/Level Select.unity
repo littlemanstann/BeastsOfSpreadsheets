@@ -225,7 +225,8 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Text 5
+          m_StringArgument: Format Factory:\nFix the format of all the cells! CTRL+SHIFT+...\n1
+            = Decimal, 2 = Time, 3 = Date, 4 = Currency, 5 = Percentage
           m_BoolArgument: 0
         m_CallState: 1
 --- !u!114 &15021894
@@ -358,7 +359,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 'Excel invaders: Move using arrow keys. Delete skulls
+          m_StringArgument: 'Excel invaders:\nMove using arrow keys. Delete skulls
             using DEL key. Survive until time runs out without letting any skulls
             drop to the bottom! This will help you practice spreadsheet maneuvering
             fundamentals. '
@@ -1022,7 +1023,9 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Text 4
+          m_StringArgument: 'Select It!\nMake a the selection exactly how the text
+            describes! Definitely not Bop-It. Shortcuts to try: SHIFT+SPACE, CTRL+SPACE,
+            CTRL+A'
           m_BoolArgument: 0
         m_CallState: 1
 --- !u!114 &879014372
@@ -1305,7 +1308,9 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Text 2
+          m_StringArgument: Fill It Up:\nFill up the whole spreadsheet by selecting
+            and using CTRL+D (Fill Down) and CTRL+R (Fill Right)! You cannot fill
+            over filled cells, and you cannot double-back!
           m_BoolArgument: 0
         m_CallState: 1
 --- !u!114 &1046227251
@@ -2157,10 +2162,10 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 'Timestamp Trial: Pictures of different animals will
+          m_StringArgument: Timestamp Trial:\nPictures of different animals will
             flash on screen. Use CTRL+SHIFT+; to timestamp the cell matching the
             animal! Timestamps are useful for logging check-in or task completion
-            times.'
+            times.
           m_BoolArgument: 0
         m_CallState: 1
 --- !u!114 &1824619395

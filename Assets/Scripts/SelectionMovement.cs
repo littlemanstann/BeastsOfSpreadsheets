@@ -28,6 +28,7 @@ public class SelectionMovement : MonoBehaviour
     private int row = 0;
     private int col = 0;
     public bool cellEnterCheck = false;
+    public bool disableMovement = false;
     // Bools to communicate to Level 1 and Level 2 scripts
     private bool[] mistake = new bool[2] { false, false };
     public bool[] Mistake { get { return mistake; } }
@@ -50,6 +51,8 @@ public class SelectionMovement : MonoBehaviour
 
     void Update()
     {
+        if (disableMovement) return;
+
         // Check if shift is held
         shiftHeld = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
 

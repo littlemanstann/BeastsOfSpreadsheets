@@ -172,15 +172,21 @@ public class EnemyBombSpawns : MonoBehaviour
         //-evan
         endScreenUI.SetActive(true);
 
+        if (score >= 100) {
+            endScreenTitle.GetComponent<TextMeshProUGUI>().text = "You Win!";
+            star.levels_completed[0] = true;
+        }
+        else {
+            endScreenTitle.GetComponent<TextMeshProUGUI>().text = "You Lose! (Score below 100)";
+        }
+
         // Lose game based on type
         if (type == 0)
         {
-            endScreenTitle.GetComponent<TextMeshProUGUI>().text = "You Lost!";
             endScreenBody.GetComponent<TextMeshProUGUI>().text = "An enemy reached the end of the grid!\nSCORE: " + score.ToString() + " in " + scoreTimer.ToString("F2") + " seconds.";
         }
         else if (type == 1)
         {
-            endScreenTitle.GetComponent<TextMeshProUGUI>().text = "You Lost!";
             endScreenBody.GetComponent<TextMeshProUGUI>().text = "You triggered a bomb!\nSCORE: " + score.ToString() + " in " + scoreTimer.ToString("F2") + " seconds.";
         }
     }

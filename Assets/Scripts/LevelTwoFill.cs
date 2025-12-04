@@ -55,7 +55,7 @@ public class LevelTwoFill : MonoBehaviour
 
        if (selectionMovement.Mistake[0])
        {
-            Time.timeScale = 0f; // Pause the game
+            selectionMovement.disableMovement = true;
             Debug.Log("Moved back into an already-visited cell! \n TIP: Hold SHIFT to select cells without visiting.");
             endScreen.SetActive(true);
             endTitle.text = "You Lost!";
@@ -63,24 +63,27 @@ public class LevelTwoFill : MonoBehaviour
        }
        else if (selectionMovement.Mistake[1])
        {
-            Time.timeScale = 0f; // Pause the game
+            selectionMovement.disableMovement = true;
             Debug.Log("Accidentially filled over a filled cell! \n TIP: Plan out your moves carefully.");
             endScreen.SetActive(true);
             endTitle.text = "You Lost!";
             endBody.text = "You accidentially filled over a filled cell!\nTIP: Plan out your moves carefully.";            
        }
 
-       if (selectionMovement.CheckFilled)
+        if (selectionMovement.CheckFilled)
         {
             selectionMovement.CheckFilled = false;
             if (IsBoardFilled())
             {
                 // Win screen
-                Time.timeScale = 0f; // Pause the game
+                selectionMovement.disableMovement = true;
                 Debug.Log("All cells filled! You win!");
+                endScreen.SetActive(true);
                 endTitle.text = "You Win!";
                 endBody.text = "Congratulations! You have successfully filled all the cells. Your time is " + timer.ToString("F2") + " seconds.";
-                endScreen.SetActive(true);
+                
+                // Mark level as completed
+                star.levels_completed[1] = true;
             }
         }
     }
