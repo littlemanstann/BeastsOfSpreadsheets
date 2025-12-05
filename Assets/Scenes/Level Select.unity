@@ -359,10 +359,10 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 'Excel invaders:\nMove using arrow keys. Delete skulls
-            using DEL key. Survive until time runs out without letting any skulls
-            drop to the bottom! This will help you practice spreadsheet maneuvering
-            fundamentals. '
+          m_StringArgument: <size=80%> Excel invaders:\nMove using arrow keys. Hold
+            SHIFT to select multiple cells. Delete skulls using BACKSPACE key. Delete
+            multiple skulls at once with SHIFT for a point bonus! Get 100 points
+            before a skull reaches the bottom or you delete a bomb to win.
           m_BoolArgument: 0
         m_CallState: 1
 --- !u!114 &49876202
@@ -1023,9 +1023,9 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 'Select It!\nMake a the selection exactly how the text
-            describes! Definitely not Bop-It. Shortcuts to try: SHIFT+SPACE, CTRL+SPACE,
-            CTRL+A'
+          m_StringArgument: 'Select It!\nMake a selection exactly how the text describes!\n
+            CTRL+A: Select All Cells \n SHIFT+SPACE: Select Row \n CTRL+SPACE: Select
+            Column'
           m_BoolArgument: 0
         m_CallState: 1
 --- !u!114 &879014372
@@ -1308,9 +1308,10 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Fill It Up:\nFill up the whole spreadsheet by selecting
-            and using CTRL+D (Fill Down) and CTRL+R (Fill Right)! You cannot fill
-            over filled cells, and you cannot double-back!
+          m_StringArgument: <size=85%> Fill It Up:\n Fill all unfilled spaces. Use
+            SHIFT+arrow keys to select spaces. You can only fill right (CTRL+R) or
+            down (CTRL+D). You lose if you fill an already filled space or if you
+            step over a space you've previously stepped on.
           m_BoolArgument: 0
         m_CallState: 1
 --- !u!114 &1046227251
@@ -2600,7 +2601,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Instructions for your chosen level will appear here!
+  m_text: Press the "Instructions" buttons and the instructions for your chosen level
+    will appear here!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
