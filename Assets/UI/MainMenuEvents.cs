@@ -8,7 +8,7 @@ public class MainMenuEvents : MonoBehaviour
     private UIDocument _document;
 
     private Button playButton;
-    private Button optionsButton;
+    //private Button optionsButton;
     private Button quitButton;
 
     private Button level1Button;
@@ -27,8 +27,8 @@ public class MainMenuEvents : MonoBehaviour
         playButton = _document.rootVisualElement.Q("PlayButton") as Button;
         playButton.RegisterCallback<ClickEvent>(OnPlayButtonClick);
 
-        optionsButton = _document.rootVisualElement.Q("OptionsButton") as Button;
-        optionsButton.RegisterCallback<ClickEvent>(OnOptionsButtonClick);
+        //optionsButton = _document.rootVisualElement.Q("OptionsButton") as Button;
+        //optionsButton.RegisterCallback<ClickEvent>(OnOptionsButtonClick);
 
         quitButton = _document.rootVisualElement.Q("QuitButton") as Button;
         quitButton.RegisterCallback<ClickEvent>(OnQuitButtonClick);
@@ -40,7 +40,7 @@ public class MainMenuEvents : MonoBehaviour
     private void OnDisable()
     {
         playButton.UnregisterCallback<ClickEvent>(OnPlayButtonClick);
-        optionsButton.UnregisterCallback<ClickEvent>(OnOptionsButtonClick);
+        //optionsButton.UnregisterCallback<ClickEvent>(OnOptionsButtonClick);
         quitButton.UnregisterCallback<ClickEvent>(OnQuitButtonClick);
     }
 
@@ -52,10 +52,10 @@ public class MainMenuEvents : MonoBehaviour
     }
 
 
-    private void OnOptionsButtonClick(ClickEvent evt)
-    {
-        Debug.Log("Pressed Options");
-    }
+    //private void OnOptionsButtonClick(ClickEvent evt)
+    //{
+    //    Debug.Log("Pressed Options");
+    //}
 
     private void OnQuitButtonClick(ClickEvent evt)
     {
