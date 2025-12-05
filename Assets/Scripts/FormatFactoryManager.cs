@@ -86,6 +86,7 @@ public class FormatFactoryManager : MonoBehaviour
             Cell(r, 1).update_text(challenges[r].Type);
         }
 
+
         t = 0f;
         running = true;
         UpdatePrompt();

@@ -100,7 +100,7 @@ public class EnemyBombSpawns : MonoBehaviour
         }
 
         // Update score display
-        scoreText.text = "SCORE: " + score.ToString();
+        scoreText.text = "SCORE: " + score.ToString() + "/100";
     }
 
     void MoveElementsDown()
